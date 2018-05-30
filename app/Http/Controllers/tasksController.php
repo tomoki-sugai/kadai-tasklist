@@ -44,11 +44,19 @@ class tasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+public function store(Request $request)
     {
-        $task = new task;
-        $task->content = $request->content;
-        $task->save();
+        $this->validate($request, [
+            'title' => 'required|max:191',   // add
+            'content' => 'required|max:191',
+        ]);
+
+
+        $message = new Message;
+        $message->title = $request->title;    // add
+        $message->content = $request->content;
+        $message->save();
+
 
         return redirect('/');
     }
@@ -90,11 +98,19 @@ class tasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-     {
-        $task = Task::find($id);
-        $task->content = $request->content;
-        $task->save();
+        public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:191',   // add
+            'content' => 'required|max:191',
+        ]);
+
+
+        $message = Message::find($id);
+        $message->title = $request->title;    // add
+        $message->content = $request->content;
+        $message->save();
+
 
         return redirect('/');
     }
