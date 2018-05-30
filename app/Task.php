@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kadai extends Model
+class Task extends Model
 {
     //
 }
