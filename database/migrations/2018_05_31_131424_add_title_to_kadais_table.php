@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTitleToKadaiTable extends Migration
+class AddTitleToKadaisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddTitleToKadaiTable extends Migration
      */
     public function up()
     {
-        Schema::table('kadai-tasklist', function (Blueprint $table) {
-            //
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->string('status',10);
+            
         });
     }
 
@@ -25,8 +26,8 @@ class AddTitleToKadaiTable extends Migration
      */
     public function down()
     {
-        Schema::table('kadai-tasklist', function (Blueprint $table) {
-            //
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('status',10);
         });
     }
 }
