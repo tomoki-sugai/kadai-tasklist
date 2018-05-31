@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h1>メッセージ新規作成ページ</h1>
+    <h1>Kadai新規作成ページ</h1>
 
 
-    {!! Form::model($message, ['route' => 'messages.store']) !!}
+    {!! Form::model($task, ['route' => 'tasks.store']) !!}
 
         {!! Form::label('title', 'タイトル:') !!}
         {!! Form::text('title') !!}
